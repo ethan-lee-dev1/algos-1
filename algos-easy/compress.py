@@ -13,14 +13,26 @@
 
 
 def compress(s):
-    pass # TODO:
-
-
+    s += '.'
+    result = []
+    i, j = 0, 0
+    while j < len(s):
+        if s[i] == s[j]:
+            j += 1
+        else:
+            letter_count = j - i
+            if letter_count == 1:
+                result.append(s[i])
+            else:
+                result.append(str(letter_count))
+                result.append(s[i])
+            i = j
+    return ''.join(result)
 
 
 # TEST CASES
-compress('ccaaatsss') # -> '2c3at3s'
+print(compress('ccaaatsss')) # -> '2c3at3s'
 # compress('ssssbbz') # -> '4s2bz'
-# compress('ppoppppp') # -> '2po5p'
+print(compress('ppoppppp')) # -> '2po5p'
 # compress('nnneeeeeeeeeeeezz') # -> '3n12e2z'
 # compress('yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy');  # -> '127y'
