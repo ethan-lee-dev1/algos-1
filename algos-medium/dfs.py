@@ -10,9 +10,27 @@ class Node:
     self.left = None
     self.right = None
 
-def depth_first_values(root):
-  pass # todo
-
+def depth_first_values(root, arr=[]):
+  # iterative
+  # result = []
+  # stack = [root]
+  # while stack:
+  #   current = stack.pop()
+  #   result.append(current.val)
+  #   if current.right:
+  #     stack.append(current.right)  
+  #   if current.left:
+  #     stack.append(current.left)
+  # return result
+  
+  
+  # recursive
+  # curr = root
+  # if curr:
+  #   arr.append(curr.val)
+  #   if curr.left: depth_first_values(curr.left, arr)
+  #   if curr.right: depth_first_values(curr.right, arr)
+  # return arr
 
 # TEST CASE
 
@@ -34,7 +52,7 @@ c.right = f
 #   b     c
 #  / \     \
 # d   e     f
-depth_first_values(a) # EXPECTED OUTPUT  -> ['a', 'b', 'd', 'e', 'c', 'f']
+print(depth_first_values(a)) # EXPECTED OUTPUT  -> ['a', 'b', 'd', 'e', 'c', 'f']
 
 # 2. 
 # a = Node('a')

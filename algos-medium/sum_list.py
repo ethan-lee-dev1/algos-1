@@ -10,8 +10,15 @@ class Node:
     self.next = None
 
 def sum_list(head):
-  pass # todo
-
+  # result = 0
+  # curr = head
+  # while(curr):
+  #   result += curr.val
+  #   curr = curr.next
+  # return result
+  if head is None:
+    return 0
+  return head.val + sum_list(head.next)
 
 # TEST CASES
 # 1. 
@@ -24,7 +31,7 @@ a.next = b
 b.next = c
 c.next = d
 d.next = e
-sum_list(a) # -> 19
+print(sum_list(a)) # -> 19
 
 # 2.
 # x = Node(38)

@@ -11,7 +11,16 @@ class Node:
     self.next = None
 
 def linked_list_values(head):
-  pass # TODO:
+  # list = []
+  # curr = head
+  # while(curr):
+  #   list.append(curr.val)
+  #   curr = curr.next
+  # return list
+  if head is None:
+    return []
+  return [head.val] + (linked_list_values(head.next))
+  
 
 
 # TEST CASES
@@ -24,17 +33,17 @@ d = Node("d")
 a.next = b
 b.next = c
 c.next = d
-linked_list_values(a) # -> [ 'a', 'b', 'c', 'd' ]
+print(linked_list_values(a)) # -> [ 'a', 'b', 'c', 'd' ]
 
-# 2.
-# x = Node("x")
-# y = Node("y")
-# x.next = y
-# linked_list_values(x) # -> [ 'x', 'y' ]
+2.
+x = Node("x")
+y = Node("y")
+x.next = y
+print(linked_list_values(x)) # -> [ 'x', 'y' ]
 
-# 3.
-# q = Node("q")
-# linked_list_values(q) # -> [ 'q' ]
+3.
+q = Node("q")
+print(linked_list_values(q)) # -> [ 'q' ]
 
-# 4.
-# linked_list_values(None) # -> [ ]
+4.
+print(linked_list_values(None)) # -> [ ]

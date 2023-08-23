@@ -6,7 +6,30 @@
 
 
 def paired_parens(string):
-  pass # todo
+  # create a stack 
+  stack = []
+  # iterate through the string
+  for char in string:
+    
+    # if current char is opening bracket
+    if char == "(":
+      # append it to the stack
+      stack.append(char)
+      # if the current char is closing backet and if stack has nothing in it
+    elif char == ")":
+      if len(stack) == 0:
+        # return false right away
+        return False
+      # if last element is opening bracket
+      elif stack[-1] == "(":
+        # pop the opening bracket from the stack
+        stack.pop()
+  # if the stack has nothing in it, that means all brackets were paired so we return True, else False
+  if len(stack) == 0:
+    return True
+  else:
+    return False
+
 
 
 
@@ -14,9 +37,9 @@ def paired_parens(string):
 
 
 # TEST CASES
-paired_parens("(david)((abby))") # -> True
-# paired_parens("()rose(jeff") # -> False
-# paired_parens(")(") # -> False
-# paired_parens("()") # -> True
-# paired_parens("(((potato())))") # -> True
-# paired_parens("(())(water)()") # -> True
+print(paired_parens("(david)((abby))")) # -> True
+print(paired_parens("()rose(jeff")) # -> False
+print(paired_parens(")(")) # -> False
+print(paired_parens("()")) # -> True
+print(paired_parens("(((potato())))")) # -> True
+print(paired_parens("(())(water)()")) # -> True
